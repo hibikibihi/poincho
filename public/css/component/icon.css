@@ -1,0 +1,28 @@
+@charset "utf-8";
+/* CSS Document */
+
+/* = icon-sprite
+------------------------------------------------
+ ex) <i class="icon-sprite icon-sprite--bed"></i>
+------------------------------------------------*/
+.icon-sprite,
+.ic-sprite {
+  background-size:300px;
+  background-image: url(/bundles/appfrontpc/assets/legacy/img/pc-icon-sprite.png);
+  background-repeat: no-repeat;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+/* = icon-css
+------------------------------------------------
+ ex) <i class="icon-css icon-css--arrowRight"></i>
+------------------------------------------------*/
+.icon-css > *,
+.ic-css > * {
+  position:relative;
+}
+.icon-css i,
+.ic-css i  {
+  position: absolute;
+}
