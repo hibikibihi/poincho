@@ -88,22 +88,48 @@
     </script>
 
     <script async src="https://cdn.ampproject.org/v0.js"></script>
-    <!-- adsense用 -->
+
+    <!-- adsense用コンポーネント -->
     <script async custom-element="amp-ad" src="https://cdn.ampproject.org/v0/amp-ad-0.1.js"></script>
+    <!-- YT用コンポーネント -->
+    <script async custom-element="amp-youtube" src="https://cdn.ampproject.org/v0/amp-youtube-0.1.js"></script>
+    <!-- TW用コンポーネント -->
+    <script async custom-element="amp-twitter" src="https://cdn.ampproject.org/v0/amp-twitter-0.1.js"></script>
+
+
+
   </head>
   <body>
     <header>
       News Site
     </header>
 
-    <amp-ad
-       layout="fixed-height"
-       height=250
-       type="adsense"
-       data-ad-client="ca-pub-1761147454528271"
-       data-ad-slot="5349495494">
+    <amp-ad width="100vw" height=320
+      type="adsense"
+      data-ad-client="ca-pub-1761147454528271"
+      data-ad-slot="5349495494"
+      data-auto-format="rspv"
+      data-full-width>
+      <div overflow></div>
     </amp-ad>
-    <p>チッ！広告でねーぜ！なんでだよ！</p>
+    <p>チッ！広告でねーぜ！なんでだよ！アカウントの問題かな？</p>
+
+    <amp-youtube
+      data-videoid="hpjV962DLWs"
+      layout="responsive"
+      width="480"
+      height="270">
+      <div fallback>
+        <p>The video could not be loaded.</p>
+      </div>
+    </amp-youtube>
+
+    <amp-twitter
+      width="486"
+      height="657"
+      layout="responsive"
+      data-tweetid="994675175806337029">
+    </amp-twitter>
 
     <article>
       <h1>Article Name</h1>
