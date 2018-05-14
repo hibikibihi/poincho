@@ -31,6 +31,9 @@
         width: auto;
         margin: 0;
         padding: 0;
+        color:#404040;
+        background-color:white;
+        font-family:'メイリオ','ヒラギノ角ゴ Pro W3','Hiragino Kaku Gothic Pro','ＭＳ Ｐゴシック';
       }
 
       header {
@@ -46,10 +49,28 @@
         background: white;
         box-shadow: 0px 3px 5px grey;
       }
+      h3 {
+        background-color: yellow;
+        padding:0.5em;
+      }
 
       p {
         padding: 0.5em;
-        margin: 0.5em;
+        font-size: 14px;
+      }
+      div.container {
+        margin: 0 4%;
+        font-size: 14px;
+      }
+      ul {
+        padding: 0 0 0 4%;
+      }
+      amp-fit-text.sample {
+        margin: 0 4%;
+        padding: 0 0 2em;
+      }
+      amp-img.amp-scrollable-carousel-slide {
+        vertical-align:top;
       }
     </style>
     <script type="application/ld+json">
@@ -96,24 +117,70 @@
     <!-- TW用コンポーネント -->
     <script async custom-element="amp-twitter" src="https://cdn.ampproject.org/v0/amp-twitter-0.1.js"></script>
 
+    <!-- テキストをfitさせるコンポーネント -->
+    <script async custom-element="amp-fit-text" src="https://cdn.ampproject.org/v0/amp-fit-text-0.1.js"></script>
 
+    <!-- カルーセル用コンポーネント -->
+    <script async custom-element="amp-carousel" src="https://cdn.ampproject.org/v0/amp-carousel-0.1.js"></script>
 
   </head>
   <body>
-    <header>
-      News Site
-    </header>
+    <header>News Site</header>
+    <h3>ポイント</h3>
+    <div class="container">
+      <ul>
+        <li>CSSは外部読み込みできない</li>
+        <li>
+          google独自のタグを使います。「amp-XXX」ってやつ。
+          <div>
+            でたよ。これを使用する時はXXX部分を有効にするコンポーネントを＜head＞内に記述して読み込む。
+          </div>
+        </li>
+    </div>
 
-    <amp-ad width="100vw" height=320
-      type="adsense"
-      data-ad-client="ca-pub-1761147454528271"
-      data-ad-slot="5349495494"
-      data-auto-format="rspv"
-      data-full-width>
-      <div overflow></div>
-    </amp-ad>
-    <p>チッ！広告でねーぜ！なんでだよ！アカウントの問題かな？</p>
+    <h3>amp-fit-text：テキストをfitさせる</h3>
+    <div class="container">
+      高さ固定の箱に対して、そこに収まる文章量によって文字サイズがフィットするっていうタグ。
+      gwdではそれでも収まらない時は末尾に「...」がついたけど、これはそうはならないみたいね。
+    </div>
 
+    <amp-fit-text width="400" height="78" layout="responsive" max-font-size="42" class="sample">
+      文字量これくらいの時の表示はこんな感じ
+    </amp-fit-text>
+
+    <amp-fit-text width="400" height="78" layout="responsive" max-font-size="42" class="sample">
+      少ない時
+    </amp-fit-text>
+
+    <amp-fit-text width="400" height="78" layout="responsive" max-font-size="42" class="sample">
+       多いとき。吾輩わがはいは猫である。名前はまだ無い。
+　どこで生れたかとんと見当けんとうがつかぬ。何でも薄暗いじめじめした所でニャーニャー泣いていた事だけは記憶している。吾輩はここで始めて人間というものを見た。しかもあとで聞くとそれは書生という人間中で一番獰悪どうあくな種族であったそうだ。この書生というのは時々我々を捕つかまえて煮にて食うという話である。しかしその当時は何という考もなかったから別段恐しいとも思わなかった。ただ彼の掌てのひらに載せられてスーと持ち上げられた時何だかフワフワした感じがあったばかりである。掌の上で少し落ちついて書生の顔を見たのがいわゆる人間というものの見始みはじめであろう。
+    </amp-fit-text>
+
+    <h3>amp-carousel：カルーセル</h3>
+
+    <p>画像のみのシンプル</p>
+    <amp-carousel layout="fixed-height" height="168" type="carousel" >
+      <amp-img src="mountains-1.jpg" width="300" height="168"></amp-img>
+      <amp-img src="mountains-2.jpg" width="300" height="168"></amp-img>
+      <amp-img src="mountains-3.jpg" width="300" height="168"></amp-img>
+    </amp-carousel>
+
+    <p>間に広告とかテキストとか</p>
+    <amp-carousel layout="fixed-height" height="250" type="carousel" >
+      <amp-img src="blocky-mountains-1.jpg" width="300" height="250"></amp-img>
+      <amp-ad width="300" height="250"
+        type="doubleclick"
+        data-slot="/35096353/amptesting/image/static">
+        <div placeholder>This ad is still loading.</div>
+      </amp-ad>
+      <amp-fit-text width="300" height="250" layout="fixed">
+        Big, bold article quote goes here.
+      </amp-fit-text>
+    </amp-carousel>
+
+
+    <h3>amp-youtube：Youtubeを表示する</h3>
     <amp-youtube
       data-videoid="hpjV962DLWs"
       layout="responsive"
@@ -124,6 +191,8 @@
       </div>
     </amp-youtube>
 
+
+    <h3>amp-twitter：ツイートを表示する</h3>
     <amp-twitter
       width="486"
       height="657"
@@ -138,5 +207,16 @@
 
       <amp-img src="mountains.jpg" layout="responsive" width="266" height="150"></amp-img>
     </article>
+
+    <amp-ad width="100vw" height=320
+      type="adsense"
+      data-ad-client="ca-pub-1761147454528271"
+      data-ad-slot="5349495494"
+      data-auto-format="rspv"
+      data-full-width>
+      <div overflow></div>
+    </amp-ad>
+    <p>チッ！広告でねーぜ！なんでだよ！アカウントの問題かな？まぁいいや</p>
+
   </body>
 </html>
