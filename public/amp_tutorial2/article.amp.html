@@ -90,7 +90,6 @@
         margin-left: -36px;
       }
     .hamburger {
-      padding-left: 10px;
       width: 25px;
       height: 19px;
       display: block;
@@ -98,37 +97,31 @@
       top: 16px;
       right: 15px;
       background-color: transparent;
+      outline:none;
     }
     .headerNav__btnOpen__bar {
       position: absolute;
       left: 0;
       width: 100%;
-      height: 3px;
+      height: 2px;
       box-sizing: border-box;
       background-color: #fff;
       border-radius: 3px;
-    }
-    .headerNav__btnOpen {
-      width: 25px;
-      height: 19px;
-      display:block;
-      position: absolute;
-      top:16px;
-      right:15px;
-      background-color: transparent;
     }
     .headerNav__btnOpen__bar:first-child {
       top: 0;
     }
     .headerNav__btnOpen__bar:nth-child(2) {
-      top: 6px;
+      top: 8px;
     }
     .headerNav__btnOpen__bar:last-child {
       bottom: 0;
     }
+    amp-sidebar {
+	width: 60vw;
+  background-color: #fff;
+}
     .sidebar {
-      padding: 10px;
-      margin: 0;
     }
     .sidebar > li {
       list-style: none;
@@ -138,12 +131,46 @@
       text-decoration: none;
     }
     .close-sidebar {
-      font-size: 1.5em;
-      padding-left: 5px;
+      display:block;
+      background-color: tomato;
+      height:50px;
+
     }
     article {
   margin-top: 50px;
 }
+
+.ic-css-close{
+  position: absolute;
+  top: 10px;
+  right: 18px;
+  display: inline-block;
+  margin: 0 7px;
+  padding: 0;
+  width: 2px;
+  height: 30px;
+  background: #fff;
+  transform: rotate(45deg);
+  border-radius: 3px
+}
+.ic-css-close:before{
+  display: block;
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: -13px;
+  width: 30px;
+  height: 2px;
+  margin-top: -1px;
+  background: #fff;
+  border-radius: 3px
+}
+.ic-css-close::before,
+.ic-css-close::after {
+  border-radius: 3px;
+}
+
+
 
     </style>
     <script type="application/ld+json">
@@ -210,18 +237,22 @@
       </div>
       <div class="site-name">News Site</div>
     </header>
-    <amp-sidebar id="sidebar1" layout="nodisplay" side="left">
-      <div role="button" aria-label="close sidebar" on="tap:sidebar1.toggle" tabindex="0" class="close-sidebar">✕</div>
+    <amp-sidebar id="sidebar1" layout="nodisplay" side="right">
+      <div role="button" aria-label="close sidebar" on="tap:sidebar1.toggle" tabindex="0" class="close-sidebar">
+        <i class="ic-css-close"></i>
+      </div>
       <ul class="sidebar">
-        <li><a href="#">Example 1</a></li>
-        <li><a href="#">Example 2</a></li>
-        <li><a href="#">Example 3</a></li>
+        <li><a href="#">記事一覧にとばしたかったり</a></li>
+        <li><a href="#">カテゴリトップだったり</a></li>
+        <li><a href="#">欲を詰め込むメニュー</a></li>
       </ul>
     </amp-sidebar>
     <article>
+      <p>ツヌリパメボー</p>
       <h3>ポイント</h3>
       <div class="container">
         <ul>
+          <li>canonicalで本ページと関連つける</li>
           <li>CSSは外部読み込みできない</li>
           <li>
             google独自のタグを使います。「amp-XXX」ってやつ。
