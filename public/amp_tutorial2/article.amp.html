@@ -66,12 +66,85 @@
         padding: 0 0 0 4%;
       }
       amp-fit-text.sample {
-        margin: 0 4%;
+        margin: 12px 4% 0;
         padding: 0 0 2em;
+        border:1px solid #ccc;
       }
       amp-img.amp-scrollable-carousel-slide {
         vertical-align:top;
       }
+
+
+
+      .headerbar {
+        height: 50px;
+        position: fixed;
+        z-index: 999;
+        top: 0;
+        width: 100%;
+        display: flex;
+        align-items: center;
+      }
+      .site-name {
+        flex: 1;
+        margin-left: -36px;
+      }
+    .hamburger {
+      padding-left: 10px;
+      width: 25px;
+      height: 19px;
+      display: block;
+      position: absolute;
+      top: 16px;
+      right: 15px;
+      background-color: transparent;
+    }
+    .headerNav__btnOpen__bar {
+      position: absolute;
+      left: 0;
+      width: 100%;
+      height: 3px;
+      box-sizing: border-box;
+      background-color: #fff;
+      border-radius: 3px;
+    }
+    .headerNav__btnOpen {
+      width: 25px;
+      height: 19px;
+      display:block;
+      position: absolute;
+      top:16px;
+      right:15px;
+      background-color: transparent;
+    }
+    .headerNav__btnOpen__bar:first-child {
+      top: 0;
+    }
+    .headerNav__btnOpen__bar:nth-child(2) {
+      top: 6px;
+    }
+    .headerNav__btnOpen__bar:last-child {
+      bottom: 0;
+    }
+    .sidebar {
+      padding: 10px;
+      margin: 0;
+    }
+    .sidebar > li {
+      list-style: none;
+      margin-bottom:10px;
+    }
+    .sidebar a {
+      text-decoration: none;
+    }
+    .close-sidebar {
+      font-size: 1.5em;
+      padding-left: 5px;
+    }
+    article {
+  margin-top: 50px;
+}
+
     </style>
     <script type="application/ld+json">
     {
@@ -123,100 +196,131 @@
     <!-- カルーセル用コンポーネント -->
     <script async custom-element="amp-carousel" src="https://cdn.ampproject.org/v0/amp-carousel-0.1.js"></script>
 
+    <!-- ハンバーガーメニュー用コンポーネント -->
+    <script async custom-element="amp-sidebar" src="https://cdn.ampproject.org/v0/amp-sidebar-0.1.js"></script>
+
+
   </head>
   <body>
-    <header>News Site</header>
-    <h3>ポイント</h3>
-    <div class="container">
-      <ul>
-        <li>CSSは外部読み込みできない</li>
-        <li>
-          google独自のタグを使います。「amp-XXX」ってやつ。
-          <div>
-            でたよ。これを使用する時はXXX部分を有効にするコンポーネントを＜head＞内に記述して読み込む。
-          </div>
-        </li>
-    </div>
-
-    <h3>amp-fit-text：テキストをfitさせる</h3>
-    <div class="container">
-      高さ固定の箱に対して、そこに収まる文章量によって文字サイズがフィットするっていうタグ。
-      gwdではそれでも収まらない時は末尾に「...」がついたけど、これはそうはならないみたいね。
-    </div>
-
-    <amp-fit-text width="400" height="78" layout="responsive" max-font-size="42" class="sample">
-      文字量これくらいの時の表示はこんな感じ
-    </amp-fit-text>
-
-    <amp-fit-text width="400" height="78" layout="responsive" max-font-size="42" class="sample">
-      少ない時
-    </amp-fit-text>
-
-    <amp-fit-text width="400" height="78" layout="responsive" max-font-size="42" class="sample">
-       多いとき。吾輩わがはいは猫である。名前はまだ無い。
-　どこで生れたかとんと見当けんとうがつかぬ。何でも薄暗いじめじめした所でニャーニャー泣いていた事だけは記憶している。吾輩はここで始めて人間というものを見た。しかもあとで聞くとそれは書生という人間中で一番獰悪どうあくな種族であったそうだ。この書生というのは時々我々を捕つかまえて煮にて食うという話である。しかしその当時は何という考もなかったから別段恐しいとも思わなかった。ただ彼の掌てのひらに載せられてスーと持ち上げられた時何だかフワフワした感じがあったばかりである。掌の上で少し落ちついて書生の顔を見たのがいわゆる人間というものの見始みはじめであろう。
-    </amp-fit-text>
-
-    <h3>amp-carousel：カルーセル</h3>
-
-    <p>画像のみのシンプル</p>
-    <amp-carousel layout="fixed-height" height="168" type="carousel" >
-      <amp-img src="mountains-1.jpg" width="300" height="168"></amp-img>
-      <amp-img src="mountains-2.jpg" width="300" height="168"></amp-img>
-      <amp-img src="mountains-3.jpg" width="300" height="168"></amp-img>
-    </amp-carousel>
-
-    <p>間に広告とかテキストとか</p>
-    <amp-carousel layout="fixed-height" height="250" type="carousel" >
-      <amp-img src="blocky-mountains-1.jpg" width="300" height="250"></amp-img>
-      <amp-ad width="300" height="250"
-        type="doubleclick"
-        data-slot="/35096353/amptesting/image/static">
-        <div placeholder>This ad is still loading.</div>
-      </amp-ad>
-      <amp-fit-text width="300" height="250" layout="fixed">
-        Big, bold article quote goes here.
-      </amp-fit-text>
-    </amp-carousel>
-
-
-    <h3>amp-youtube：Youtubeを表示する</h3>
-    <amp-youtube
-      data-videoid="hpjV962DLWs"
-      layout="responsive"
-      width="480"
-      height="270">
-      <div fallback>
-        <p>The video could not be loaded.</p>
+    <header class="headerbar">
+      <div role="button" on="tap:sidebar1.toggle" tabindex="0" class="hamburger">
+        <span class="headerNav__btnOpen__bar"></span>
+        <span class="headerNav__btnOpen__bar"></span>
+        <span class="headerNav__btnOpen__bar"></span>
       </div>
-    </amp-youtube>
-
-
-    <h3>amp-twitter：ツイートを表示する</h3>
-    <amp-twitter
-      width="486"
-      height="657"
-      layout="responsive"
-      data-tweetid="994675175806337029">
-    </amp-twitter>
-
+      <div class="site-name">News Site</div>
+    </header>
+    <amp-sidebar id="sidebar1" layout="nodisplay" side="left">
+      <div role="button" aria-label="close sidebar" on="tap:sidebar1.toggle" tabindex="0" class="close-sidebar">✕</div>
+      <ul class="sidebar">
+        <li><a href="#">Example 1</a></li>
+        <li><a href="#">Example 2</a></li>
+        <li><a href="#">Example 3</a></li>
+      </ul>
+    </amp-sidebar>
     <article>
-      <h1>Article Name</h1>
+      <h3>ポイント</h3>
+      <div class="container">
+        <ul>
+          <li>CSSは外部読み込みできない</li>
+          <li>
+            google独自のタグを使います。「amp-XXX」ってやつ。
+            <div>
+              でたよ、これを使用する時はXXX部分を有効にする<strong>コンポーネントを＜head＞内に記述して読み込む。</strong>
+            </div>
+          </li>
+          <li>カルーセルも独自のタグに書き換えないといけないね</li>
+          <li>googleanalyticsも書き方変える</li>
+          <li>imgタグは＜amp-img＞＜/amp-img＞</li>
+          <li>
+            ハンバーガーメニューはgoogleセットに乗っかろう
+            <div>
+              外部ファイルとか読み込めないし、CSS制御すんのそれなり複数行になるからできる範囲で改造したほうが軽いでしょ
+            </div>
+          </li>
 
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam egestas tortor sapien, non tristique ligula accumsan eu.</p>
+      </div>
 
-      <amp-img src="mountains.jpg" layout="responsive" width="266" height="150"></amp-img>
+      <h3>amp-fit-text：テキストをfitさせる</h3>
+      <div class="container">
+        高さ固定の箱に対して、そこに収まる文章量によって文字サイズがフィットするっていうタグ。
+        gwdではそれでも収まらない時は末尾に「...」がついたけど、これはそうはならないみたいね。
+      </div>
+
+      <amp-fit-text width="400" height="78" layout="responsive" max-font-size="42" class="sample">
+        文字量これくらいの時の表示はこんな感じ
+      </amp-fit-text>
+
+      <amp-fit-text width="400" height="78" layout="responsive" max-font-size="42" class="sample">
+        少ない時
+      </amp-fit-text>
+
+      <amp-fit-text width="400" height="78" layout="responsive" max-font-size="42" class="sample">
+         多いとき。吾輩わがはいは猫である。名前はまだ無い。
+  　どこで生れたかとんと見当けんとうがつかぬ。何でも薄暗いじめじめした所でニャーニャー泣いていた事だけは記憶している。吾輩はここで始めて人間というものを見た。しかもあとで聞くとそれは書生という人間中で一番獰悪どうあくな種族であったそうだ。この書生というのは時々我々を捕つかまえて煮にて食うという話である。しかしその当時は何という考もなかったから別段恐しいとも思わなかった。ただ彼の掌てのひらに載せられてスーと持ち上げられた時何だかフワフワした感じがあったばかりである。掌の上で少し落ちついて書生の顔を見たのがいわゆる人間というものの見始みはじめであろう。
+      </amp-fit-text>
+
+      <h3>amp-carousel：カルーセル</h3>
+
+      <p>画像のみのシンプル</p>
+      <amp-carousel layout="fixed-height" height="168" type="carousel" >
+        <amp-img src="mountains-1.jpg" width="300" height="168"></amp-img>
+        <amp-img src="mountains-2.jpg" width="300" height="168"></amp-img>
+        <amp-img src="mountains-3.jpg" width="300" height="168"></amp-img>
+      </amp-carousel>
+
+      <p>間に広告とかテキストとか</p>
+      <amp-carousel layout="fixed-height" height="250" type="carousel" >
+        <amp-img src="blocky-mountains-1.jpg" width="300" height="250"></amp-img>
+        <amp-ad width="300" height="250"
+          type="doubleclick"
+          data-slot="/35096353/amptesting/image/static">
+          <div placeholder>This ad is still loading.</div>
+        </amp-ad>
+        <amp-fit-text width="300" height="250" layout="fixed">
+          Big, bold article quote goes here.
+        </amp-fit-text>
+      </amp-carousel>
+
+
+      <h3>amp-youtube：Youtubeを表示する</h3>
+      <amp-youtube
+        data-videoid="hpjV962DLWs"
+        layout="responsive"
+        width="480"
+        height="270">
+        <div fallback>
+          <p>The video could not be loaded.</p>
+        </div>
+      </amp-youtube>
+
+
+      <h3>amp-twitter：ツイートを表示する</h3>
+      <amp-twitter
+        width="486"
+        height="657"
+        layout="responsive"
+        data-tweetid="994675175806337029">
+      </amp-twitter>
+
+      <article>
+        <h1>Article Name</h1>
+
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam egestas tortor sapien, non tristique ligula accumsan eu.</p>
+
+        <amp-img src="mountains.jpg" layout="responsive" width="266" height="150"></amp-img>
+      </article>
+
+      <amp-ad width="100vw" height=320
+        type="adsense"
+        data-ad-client="ca-pub-1761147454528271"
+        data-ad-slot="5349495494"
+        data-auto-format="rspv"
+        data-full-width>
+        <div overflow></div>
+      </amp-ad>
+      <p>チッ！広告でねーぜ！なんでだよ！アカウントの問題かな？まぁいいや</p>
     </article>
-
-    <amp-ad width="100vw" height=320
-      type="adsense"
-      data-ad-client="ca-pub-1761147454528271"
-      data-ad-slot="5349495494"
-      data-auto-format="rspv"
-      data-full-width>
-      <div overflow></div>
-    </amp-ad>
-    <p>チッ！広告でねーぜ！なんでだよ！アカウントの問題かな？まぁいいや</p>
 
   </body>
 </html>
