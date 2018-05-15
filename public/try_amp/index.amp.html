@@ -20,12 +20,13 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
 
-    <link rel="canonical" href="article.html">
+    <link rel="canonical" href="index.html">
     <link rel="shortcut icon" href="amp_favicon.png">
 
     <title>News Article</title>
 
     <style amp-boilerplate>body{-webkit-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-moz-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-ms-animation:-amp-start 8s steps(1,end) 0s 1 normal both;animation:-amp-start 8s steps(1,end) 0s 1 normal both}@-webkit-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-moz-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-ms-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-o-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}</style><noscript><style amp-boilerplate>body{-webkit-animation:none;-moz-animation:none;-ms-animation:none;animation:none}</style></noscript>
+    <link href="https://fonts.googleapis.com/css?family=Fredoka+One" rel="stylesheet">
     <style amp-custom>
       body {
         width: auto;
@@ -37,20 +38,14 @@
       }
 
       header {
-        background: Tomato;
+        background: #fc1994;
         color: white;
         font-size: 2em;
         text-align: center;
       }
 
-      h1 {
-        margin: 0;
-        padding: 0.5em;
-        background: white;
-        box-shadow: 0px 3px 5px grey;
-      }
       h3 {
-        background-color: yellow;
+        background-color: #e2fcc8;
         padding:0.5em;
       }
 
@@ -61,9 +56,18 @@
       div.container {
         margin: 0 4%;
         font-size: 14px;
+        word-break: break-all;
       }
       ul {
+        margin:0;
         padding: 0 0 0 4%;
+      }
+      ul.point li {
+        padding:0 0 12px 0;
+      }
+      ul.point div {
+        font-size: 10px;
+        font-weight: 500;
       }
       amp-fit-text.sample {
         margin: 12px 4% 0;
@@ -87,7 +91,9 @@
       }
       .site-name {
         flex: 1;
-        margin-left: -36px;
+        font-family: 'Fredoka One', cursive;
+        font-size: 24px;
+        font-weight: 500;
       }
     .hamburger {
       width: 25px;
@@ -122,6 +128,7 @@
   background-color: #fff;
 }
     .sidebar {
+      padding: 8px;
     }
     .sidebar > li {
       list-style: none;
@@ -132,7 +139,7 @@
     }
     .close-sidebar {
       display:block;
-      background-color: tomato;
+      background-color: #fc1994;
       height:50px;
 
     }
@@ -235,7 +242,7 @@
         <span class="headerNav__btnOpen__bar"></span>
         <span class="headerNav__btnOpen__bar"></span>
       </div>
-      <div class="site-name">News Site</div>
+      <div class="site-name">TRY AMP</div>
     </header>
     <amp-sidebar id="sidebar1" layout="nodisplay" side="right">
       <div role="button" aria-label="close sidebar" on="tap:sidebar1.toggle" tabindex="0" class="close-sidebar">
@@ -245,13 +252,24 @@
         <li><a href="#">記事一覧にとばしたかったり</a></li>
         <li><a href="#">カテゴリトップだったり</a></li>
         <li><a href="#">欲を詰め込むメニュー</a></li>
+        <li><a href="https://kagoblo.net/clear-amp-cache/" target="_blank">AMPのキャッシュを削除する方法</a></li>
       </ul>
     </amp-sidebar>
     <article>
       <p>ツヌリパメボー</p>
+      <div class="container">
+        前回GWDのダイナミックはじめた時、英語のドキュメントだからって読まないで始めて痛い目にあったので、今回は公式のチュートリアルをとりあえずまじめにやりました。<br />
+        <a href="https://www.ampproject.org/ja/docs/fundamentals/add_advanced" target="_blank">https://www.ampproject.org/ja/docs/fundamentals/add_advanced</a>
+      </div>
       <h3>ポイント</h3>
       <div class="container">
-        <ul>
+        <ul class="point">
+          <li>
+            そのページに対応した簡易的なAMPページを新たにつくる必要がある
+            <div>
+              プログラムで変換してサッ！っていうもんじゃないんだね
+            </div>
+          </li>
           <li>canonicalで本ページと関連つける</li>
           <li>CSSは外部読み込みできない</li>
           <li>
@@ -269,7 +287,31 @@
               外部ファイルとか読み込めないし、CSS制御すんのそれなり複数行になるからできる範囲で改造したほうが軽いでしょ
             </div>
           </li>
-
+          <li>
+            AMPの構文検証は「CHROME EXTENSION」入れると便利
+            <div>
+              <a href="https://validator.ampproject.org/" target="_blank">https://validator.ampproject.org/</a><br/>
+              右上ね
+            </div>
+          </li>
+          <li>
+            schemaはこの辺でもみてちゃんと設定しないとね
+            <div>
+              <a href="http://schema-ja.appspot.com/docs/full.html" target="_blank">http://schema-ja.appspot.com/docs/full.html</a>
+            </div>
+          </li>
+          <li>
+            webmastertoolsでシミュレーション
+            <div>
+              webmastertoolsにURL登録すると検索結果のシミュレーションとかみれるっぽいけど会社のPCで私用Gアカウントログインしたくないから後でだな。<br />
+              <a href="https://www.google.com/webmasters/tools/home?hl=ja" target="_blank">https://www.google.com/webmasters/tools/home?hl=ja</a>
+            </div>
+          </li>
+        </ul>
+        <div>
+          あーこのとおりかな<br />
+          <a href="https://razokulover.hateblo.jp/entry/2016/02/01/201731" target="_blank">https://razokulover.hateblo.jp/entry/2016/02/01/201731</a>
+        </div>
       </div>
 
       <h3>amp-fit-text：テキストをfitさせる</h3>
@@ -316,7 +358,7 @@
 
       <h3>amp-youtube：Youtubeを表示する</h3>
       <amp-youtube
-        data-videoid="hpjV962DLWs"
+        data-videoid="npum8JsITQE"
         layout="responsive"
         width="480"
         height="270">
@@ -331,16 +373,11 @@
         width="486"
         height="657"
         layout="responsive"
-        data-tweetid="994675175806337029">
+        data-tweetid="981229254468780034">
       </amp-twitter>
 
-      <article>
-        <h1>Article Name</h1>
-
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam egestas tortor sapien, non tristique ligula accumsan eu.</p>
-
         <amp-img src="mountains.jpg" layout="responsive" width="266" height="150"></amp-img>
-      </article>
+
 
       <amp-ad width="100vw" height=320
         type="adsense"
