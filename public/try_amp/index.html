@@ -13,49 +13,211 @@
  See the License for the specific language governing permissions and
  limitations under the License.
 -->
-
 <!doctype html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="description" content="ツヌリパメボー" />
-    <meta name="keywords" content="ampのテストだよ" />
+<html lang="ja">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
 
-    <title>TRY AMP</title>
-
-    <link href="base.css" rel="stylesheet" />
-
-    <link rel="amphtml" href="index.amp.html">
-
-    <script type="text/javascript" src="base.js"></script>
-  </head>
-  <body>
-    <header>
-      News Site
-    </header>
-    <p>ツヌリパメボー</p>
+<title>TRY AMP</title>
+<meta name="description" content="ツヌリパメボー" />
+<meta name="keywords" content="amp,test,ツヌリパメボー" />
 
 
-    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-    <!-- amptest -->
-    <ins class="adsbygoogle"
-         style="display:block"
-         data-ad-client="ca-pub-1761147454528271"
-         data-ad-slot="5349495494"
-         data-ad-format="auto"></ins>
-    <script>
-    (adsbygoogle = window.adsbygoogle || []).push({});
-    </script>
+<!--カルーセル用のJS-->
+<link rel="stylesheet" type="text/css" href="js/slick/slick.css" media="screen" />
+<link rel="stylesheet" type="text/css" href="js/slick/slick-theme.css" media="screen" />
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<script src="js/slick/slick.min.js"></script>
+<!--/カルーセル用のJS-->
+
+
+<link href="https://fonts.googleapis.com/css?family=Fredoka+One" rel="stylesheet">
+<link href="base.css" rel="stylesheet" />
+<link rel="amphtml" href="index.amp.html">
+<link rel="shortcut icon" href="amp_favicon.png">
+
+<script type="text/javascript" src="base.js"></script>
 
 
 
+</head>
+
+<body>
+  <header class="headerBar">
+    <!-- <div role="button" on="tap:sidebar1.toggle" tabindex="0" class="hamburger">
+      <span class="headerNav__btnOpen__bar"></span>
+      <span class="headerNav__btnOpen__bar"></span>
+      <span class="headerNav__btnOpen__bar"></span>
+    </div> -->
+    <h1 class="siteName">TRY AMP</h1>
+  </header>
+
+  <article class="container">
+    <div class="content">
+      <h2 class="content__title">ツヌリパメボー</h2>
+      <div class="content__text">
+        前回GWDのダイナミックはじめた時、英語のドキュメントだからって読まないで始めて痛い目にあったので、今回は公式のチュートリアルをとりあえずまじめにやりました。<br />
+        <a href="https://www.ampproject.org/ja/docs/fundamentals/add_advanced" target="_blank">https://www.ampproject.org/ja/docs/fundamentals/add_advanced</a>
+      </div>
+    </div>
+    <div class="content">
+      <h2 class="content__title">ポイント</h2>
+      <div class="content__text">
+        <ul class="pointList">
+          <li class="pointList__item">
+            そのページに対応した簡易的なAMPページを新たにつくる必要がある
+            <div class="pointList__item__sub">
+              プログラムで変換してサッ！っていうもんじゃないんだね
+            </div>
+          </li>
+          <li class="pointList__item">canonicalで本ページと関連つける</li>
+          <li class="pointList__item">CSSやJSは外部読み込みできない</li>
+          <li class="pointList__item">
+            google独自のタグを使います。「amp-XXX」ってやつ。
+            <div class="pointList__item__sub">
+              でたよ、これを使用する時はXXX部分を有効にする<strong>コンポーネントを＜head＞内に記述して読み込む。</strong>
+            </div>
+          </li>
+          <li class="pointList__item">カルーセルも独自のタグに書き換えないといけないね</li>
+          <li class="pointList__item">googleanalyticsも書き方変える</li>
+          <li class="pointList__item">imgタグは＜amp-img＞＜/amp-img＞</li>
+          <li class="pointList__item">
+            ハンバーガーメニューはgoogleセットに乗っかろう
+            <div class="pointList__item__sub">
+              外部ファイルとか読み込めないし、CSS制御すんのそれなり複数行になるからできる範囲で改造したほうが軽いでしょ
+            </div>
+          </li>
+          <li class="pointList__item">
+            AMPの構文検証は「CHROME EXTENSION」入れると便利
+            <div class="pointList__item__sub">
+              <a href="https://validator.ampproject.org/" target="_blank">https://validator.ampproject.org/</a><br/>
+              右上ね
+            </div>
+          </li>
+          <li class="pointList__item">
+            schemaはこの辺でもみてちゃんと設定しないとね
+            <div class="pointList__item__sub">
+              <a href="http://schema-ja.appspot.com/docs/full.html" target="_blank">http://schema-ja.appspot.com/docs/full.html</a>
+            </div>
+          </li>
+          <li class="pointList__item">
+            webmastertoolsでシミュレーション
+            <div class="pointList__item__sub">
+              webmastertoolsにURL登録すると検索結果のシミュレーションとかみれるっぽいけど会社のPCで私用Gアカウントログインしたくないから後でだな。<br />
+              <a href="https://www.google.com/webmasters/tools/home?hl=ja" target="_blank">https://www.google.com/webmasters/tools/home?hl=ja</a>
+            </div>
+          </li>
+        </ul>
+        <div>
+        あーこのとおりかな<br />
+        <a href="https://razokulover.hateblo.jp/entry/2016/02/01/201731" target="_blank">https://razokulover.hateblo.jp/entry/2016/02/01/201731</a>
+        </div>
+      </div>
+    </div>
+    <div class="content">
+      <h2 class="content__title">amp-fit-text：テキストをfitさせる</h2>
+      <div class="content__text">
+        高さ固定の箱に対して、そこに収まる文章量によって文字サイズがフィットするっていうタグ。
+        gwdではそれでも収まらない時は末尾に「...」がついたけど、これはそうはならないみたいね。
+      </div>
+
+      <div class="sampleFitText">
+        文字量これくらいの時の表示はこんな感じ
+      </div>
+      <div class="sampleFitText">
+        少ない時
+      </div>
+      <div class="sampleFitText">
+         多いとき。吾輩わがはいは猫である。名前はまだ無い。
+  　どこで生れたかとんと見当けんとうがつかぬ。何でも薄暗いじめじめした所でニャーニャー泣いていた事だけは記憶している。吾輩はここで始めて人間というものを見た。しかもあとで聞くとそれは書生という人間中で一番獰悪どうあくな種族であったそうだ。この書生というのは時々我々を捕つかまえて煮にて食うという話である。しかしその当時は何という考もなかったから別段恐しいとも思わなかった。ただ彼の掌てのひらに載せられてスーと持ち上げられた時何だかフワフワした感じがあったばかりである。掌の上で少し落ちついて書生の顔を見たのがいわゆる人間というものの見始みはじめであろう。
+      </div>
+    </div>
+    <div class="content">
+      <h2 class="content__title">amp-carousel：カルーセル</h2>
+      <div class="content__text">画像のみのシンプル</div>
+      <!-- <amp-carousel layout="fixed-height" height="168" type="carousel" >
+        <amp-img src="mountains-1.jpg" width="300" height="168"></amp-img>
+        <amp-img src="mountains-2.jpg" width="300" height="168"></amp-img>
+        <amp-img src="mountains-3.jpg" width="300" height="168"></amp-img>
+      </amp-carousel> -->
+      <ul class="slider-1">
+        <li><a href="#"><img src="mountains-1.jpg"></a></li>
+        <li><a href="#"><img src="mountains-2.jpg"></a></li>
+        <li><a href="#"><img src="mountains-3.jpg"></a></li>
+      </ul>
+
+      <div class="content__text">画像のみのシンプル</div>
+      <!-- <amp-carousel layout="fixed-height" height="250" type="carousel" >
+        <amp-img src="blocky-mountains-1.jpg" width="300" height="250"></amp-img>
+        <amp-ad width="300" height="250"
+          type="doubleclick"
+          data-slot="/35096353/amptesting/image/static">
+          <div placeholder>This ad is still loading.</div>
+        </amp-ad>
+        <amp-fit-text width="300" height="250" layout="fixed">
+          Big, bold article quote goes here.
+        </amp-fit-text>
+      </amp-carousel> -->
+      <ul class="slider-2">
+        <li><a href="#"><img src="blocky-mountains-1.jpg"></a></li>
+        <li><a href="#"><img src="mountains-2.jpg"></a></li>
+        <li><a href="#"><img src="mountains-3.jpg"></a></li>
+      </ul>
+
+    <h2>amp-youtube：Youtubeを表示する</h2>
+    <amp-youtube
+      data-videoid="npum8JsITQE"
+      layout="responsive"
+      width="480"
+      height="270">
+      <div fallback>
+        <p>The video could not be loaded.</p>
+      </div>
+    </amp-youtube>
 
 
-    <article>
-      <h1>Article Name</h1>
+    <h2>amp-twitter：ツイートを表示する</h2>
+    <amp-twitter
+      width="486"
+      height="657"
+      layout="responsive"
+      data-tweetid="981229254468780034">
+    </amp-twitter>
 
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam egestas tortor sapien, non tristique ligula accumsan eu.</p>
-    </article>
-    <img src="mountains.jpg">
-  </body>
+      <amp-img src="mountains.jpg" layout="responsive" width="266" height="150"></amp-img>
+
+
+    <amp-ad width="100vw" height=320
+      type="adsense"
+      data-ad-client="ca-pub-1761147454528271"
+      data-ad-slot="5349495494"
+      data-auto-format="rspv"
+      data-full-width>
+      <div overflow></div>
+    </amp-ad>
+    <p>チッ！広告でねーぜ！なんでだよ！アカウントの問題かな？まぁいいや</p>
+
+    <div class="container">
+      https://validator.ampproject.org/
+      構造化データ テストツール
+      https://search.google.com/structured-data/testing-tool/u/0/
+  </article>
+
+
+  <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+  <!-- amptest -->
+  <!-- <ins class="adsbygoogle"
+       style="display:block"
+       data-ad-client="ca-pub-1761147454528271"
+       data-ad-slot="5349495494"
+       data-ad-format="auto"></ins>
+  <script>
+  (adsbygoogle = window.adsbygoogle || []).push({});
+  </script> -->
+  <script>
+  $('.slider-1').slick({
+  });
+  </script>
+</body>
 </html>
