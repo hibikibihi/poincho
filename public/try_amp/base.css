@@ -26,7 +26,6 @@ html {
   overflow-y: scroll;
   font-size: 62.5%;
 }
-
 body {
   font-size: 1.4rem;
   line-height: 1.4;
@@ -110,7 +109,14 @@ img {
     max-width: 100%;
      height: auto;
 }
-@media screen and (min-width: 900px) {
+@media screen and (min-width: 1000px) {
+  html {
+    font-size: 90%;
+  }
+  .content {
+    max-width: 900px;
+    margin: 0 auto 4rem;
+  }
   .slider-1 {
     margin: 2rem auto 0;
     max-width: 900px;
