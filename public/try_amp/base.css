@@ -12,13 +12,21 @@ table, caption, tbody, tfoot, thead, tr, th, td,
 article, aside, canvas, details, figcaption, figure,
 footer, header, hgroup, menu, nav, section, summary,
 time, mark, audio, video {
-    margin:0;
-    padding:0;
-    border:0;
-    outline:0;
-    font-size:100%;
-    vertical-align:baseline;
-    background:transparent;
+  margin:0;
+  padding:0;
+  border:0;
+  outline:0;
+  font-size:100%;
+  vertical-align:baseline;
+  background:transparent;
+}
+ol,ul{
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+}
+img,svg {
+  vertical-align: bottom;
 }
 html {
   width: 100%;
@@ -59,7 +67,7 @@ header {
 }
 .content {
   margin: 0 2rem 4rem;
-  font-size: 1.3rem;
+  font-size: 1.4rem;
   word-break: break-all;
 }
 .content__title {
@@ -73,13 +81,15 @@ header {
 -------------------------------------------- */
 .pointList {
   margin:0 0 0 16px;
+  list-style-type: disc;
 }
 .pointList__item {
   padding:0 0 12px 0;
 }
 .pointList__item__sub {
-  font-size: 1rem;
   padding:8px 0 0 0;
+  color: #999;
+  font-size: 1.2rem;
 }
 /* sampleFitText
 -------------------------------------------- */
@@ -93,9 +103,6 @@ header {
 }
 /* slider
 -------------------------------------------- */
-.slider-1 {
-  margin: 2rem -2rem 0;
-}
 .slick-next {
   right: 20px;
   z-index: 99;
@@ -104,12 +111,166 @@ header {
   left: 15px;
   z-index: 100;
 }
-/*スライド画像の横幅可変*/
-img {
-    max-width: 100%;
-     height: auto;
+/*--- slider-1 ---*/
+.slider-1 {
+  margin: 2rem -2rem;
 }
-@media screen and (min-width: 1000px) {
+.slider-1 img {
+  max-width: 100%;
+  height: auto;
+}
+/*--- slider-2 ---*/
+.slider-2 {
+  margin: 2rem -2rem;
+  height:250px;
+  background: #ccc;
+}
+.slider-2 img,
+.slider-2 > div {
+  max-width: 350px;
+  height: auto;
+  margin:0 auto;
+}
+.slider-2 .slick-list,
+.slider-2 .slick-slide {
+  height:250px !important;
+  padding:0 !important;
+}
+.slider-2__text {
+  width:300px;
+  height:250px;
+  display:block;
+  box-sizing: border-box;
+  background-color: yellow;
+  padding:16px;
+  margin:0 auto;
+}
+/*--- slider-3 ---*/
+.slider-3 {
+  overflow-y: hidden;
+  overflow-x: scroll;
+  margin: 0 auto;
+  display: flex;
+  -webkit-overflow-scrolling: touch;
+  overflow-scrolling: touch;
+  margin: 2rem -2rem;
+}
+
+.slider-3__item {
+  flex: 0 0 70%;
+  margin: 0 16px 0 0;
+}
+.slider-3__item:last-child {
+  margin:0;
+}
+.slider-3__item img {
+  max-width: 100%;
+  height: auto;
+}
+/* Youtube
+-------------------------------------------- */
+.sampleYoutube {
+  position: relative;
+  padding-bottom: 56.25%;
+  overflow: hidden;
+  margin: 2rem -2rem;
+}
+
+.sampleYoutube iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+/* Twitter
+  -------------------------------------------- */
+.sampleTwitter {
+}
+.sampleTwitter twitterwidget {
+  margin: 0 auto;
+}
+
+
+
+
+/* hamburger menu
+-------------------------------------------- */
+/* position: fixed;
+z-index: 4;
+top: 0;
+display: block;
+
+padding: 0;
+padding: 18px .75rem 30px;
+-webkit-transition: all .6s cubic-bezier(.19,1,.22,1);
+transition: all .6s cubic-bezier(.19,1,.22,1);
+-webkit-transform: translateZ(0);
+transform: translateZ(0); */
+
+
+
+.menu-trigger,
+.menu-trigger span {
+  position: absolute;
+  display: inline-block;
+  transition: all .4s;
+  box-sizing: border-box;
+  background-color: transparent;
+  right:2rem;
+  border: 0;
+  outline: 0;
+  padding:0;
+}
+.menu-trigger {
+  width: 50px;
+  height: 44px;
+  box-sizing: content-box;
+  width: 4rem;
+}
+.menu-trigger span {
+  position: absolute;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  background-color: #fff;
+  border-radius: 4px;
+}
+.menu-trigger span:nth-of-type(1) {
+  top: 0;
+}
+.menu-trigger span:nth-of-type(2) {
+  top: 20px;
+}
+.menu-trigger span:nth-of-type(3) {
+  bottom: 0;
+}
+
+
+.menu-trigger.active span:nth-of-type(1) {
+  -webkit-transform: translateY(20px) rotate(-45deg);
+  transform: translateY(20px) rotate(-45deg);
+}
+.menu-trigger.active span:nth-of-type(2) {
+  opacity: 0;
+}
+.menu-trigger.active span:nth-of-type(3) {
+  -webkit-transform: translateY(-20px) rotate(45deg);
+  transform: translateY(-20px) rotate(45deg);
+}
+
+.drawer-open {
+  position: fixed;
+  width: 100%;
+  height: auto;
+  overflow: hidden;
+}
+
+
+
+
+
+@media screen and (min-width: 1000px) { /*1000px以上*/
   html {
     font-size: 90%;
   }
@@ -118,10 +279,25 @@ img {
     margin: 0 auto 4rem;
   }
   .slider-1 {
-    margin: 2rem auto 0;
+    margin: 2rem auto;
+    max-width: 900px;
+  }
+  .slider-2 {
+    margin: 2rem auto;
     max-width: 900px;
   }
 }
+@media screen and (min-width: 415px) { /*1000px以上*/
+  .slider-3 {
+    margin: 2rem auto;
+    max-width: 900px;
+    overflow-x: hidden;
+  }
+  .slider-3__item {
+    flex: 0 8 100%;
+  }
+}
+
 
 
 

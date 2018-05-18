@@ -23,14 +23,20 @@
 <meta name="description" content="ツヌリパメボー" />
 <meta name="keywords" content="amp,test,ツヌリパメボー" />
 
+<script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
 
-<!--カルーセル用のJS-->
+
+<!--カルーセル用-->
 <link rel="stylesheet" type="text/css" href="js/slick/slick.css" media="screen" />
 <link rel="stylesheet" type="text/css" href="js/slick/slick-theme.css" media="screen" />
-<script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
 <script src="js/slick/slick.min.js"></script>
-<!--/カルーセル用のJS-->
+<!--/カルーセル用-->
 
+<!--ハンバーガーメニュー用-->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/drawer/3.2.2/css/drawer.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/iScroll/5.2.0/iscroll.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/drawer/3.2.2/js/drawer.min.js"></script>
+<!--/ハンバーガーメニュー用-->
 
 <link href="https://fonts.googleapis.com/css?family=Fredoka+One" rel="stylesheet">
 <link href="base.css" rel="stylesheet" />
@@ -43,7 +49,7 @@
 
 </head>
 
-<body>
+<body class="drawer drawer--right">
   <header class="headerBar">
     <!-- <div role="button" on="tap:sidebar1.toggle" tabindex="0" class="hamburger">
       <span class="headerNav__btnOpen__bar"></span>
@@ -51,6 +57,22 @@
       <span class="headerNav__btnOpen__bar"></span>
     </div> -->
     <h1 class="siteName">TRY AMP</h1>
+
+    <button type="button" class="drawer-toggle drawer-hamburger menu-trigger">
+
+  <span></span>
+  <span></span>
+  <span></span>
+
+    </button>
+    <nav class="drawer-nav">
+      <ul class="drawer-menu">
+        <li><a class="drawer-brand" href="#">Brand</a></li>
+        <li><a class="drawer-menu-item" href="#">Nav1</a></li>
+        <li><a class="drawer-menu-item" href="#">Nav2</a></li>
+      </ul>
+    </nav>
+
   </header>
 
   <article class="container">
@@ -61,8 +83,84 @@
         <a href="https://www.ampproject.org/ja/docs/fundamentals/add_advanced" target="_blank">https://www.ampproject.org/ja/docs/fundamentals/add_advanced</a>
       </div>
     </div>
+
     <div class="content">
-      <h2 class="content__title">ポイント</h2>
+      <h2 class="content__title">やること</h2>
+      <div class="content__text">
+        <ul class="pointList">
+          <li class="pointList__item">
+            htmlタグに⚡入れる
+            <div class="pointList__item__sub">&lt;html ⚡ lang="ja"&gt;</div>
+          </li>
+          <li class="pointList__item">
+            meta viewportはこれね
+            <div class="pointList__item__sub">&lt;meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1"&gt;</div>
+          </li>
+          <li class="pointList__item">
+            canonical
+            <div class="pointList__item__sub">
+              amp側はPC向ける<br />
+              SP側はamphtml追記
+              &lt;link rel="amphtml" href="XXXXX.amp.html"&gt;
+            </div>
+          </li>
+          <li class="pointList__item">
+            metaに呪文の追記
+            <div class="pointList__item__sub">
+              &lt;style amp-boilerplate&gt;
+            </div>
+          </li>
+          <li class="pointList__item">
+            metaに使用するコンポーネントの追記
+            <div class="pointList__item__sub">
+              ↓カルーセルなら<br />
+              &lt;script async custom-element="amp-carousel" src="https://cdn.ampproject.org/v0/amp-carousel-0.1.js"&gt;&lt;/script&gt;<br />
+              ↓GAなら<br />
+              &lt;script async src="https://cdn.ampproject.org/v0.js"&gt;&lt;/script&gt;<br />
+              <br />
+              <a href="https://developers.google.com/analytics/devguides/collection/amp-analytics/?hl=ja" target="_blank">
+                https://developers.google.com/analytics/devguides/collection/amp-analytics/?hl=ja
+              </a>
+            </div>
+          </li>
+          <li class="pointList__item">
+            style
+            <div class="pointList__item__sub">
+              &lt;style amp-custom&gt;で追記<br />
+              呼び出しているCSSをコンプレスしてadd & 追記<br />
+              img などタグ直にかかっているものは amp-img などにして追記する必要ある
+            </div>
+          </li>
+          <li class="pointList__item">
+            AMP特有のタグに変更
+            <div class="pointList__item__sub">
+              基本的にimg→amp-img くらいかな？
+            </div>
+          </li>
+          <li class="pointList__item">
+            validation Check!<br />
+            <div class="pointList__item__sub">
+              <a href="https://validator.ampproject.org/" target="_blank">
+                https://validator.ampproject.org/
+              </a>
+              <br />
+              「CHROME EXTENSION」入れると便利かな 右上ね
+              <br />
+              <a href="https://search.google.com/structured-data/testing-tool/u/0/" target="_blank">
+                https://search.google.com/structured-data/testing-tool/u/0/
+              </a>
+              <br />
+              webmastertoolsでシミュレーション<br />
+              webmastertoolsにURL登録すると検索結果のシミュレーションとかみれるっぽい<br />
+              <a href="https://www.google.com/webmasters/tools/home?hl=ja" target="_blank">https://www.google.com/webmasters/tools/home?hl=ja</a>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="content">
+      <h2 class="content__title">あーそうだったんだ</h2>
       <div class="content__text">
         <ul class="pointList">
           <li class="pointList__item">
@@ -71,41 +169,26 @@
               プログラムで変換してサッ！っていうもんじゃないんだね
             </div>
           </li>
-          <li class="pointList__item">canonicalで本ページと関連つける</li>
           <li class="pointList__item">CSSやJSは外部読み込みできない</li>
           <li class="pointList__item">
-            google独自のタグを使います。「amp-XXX」ってやつ。
-            <div class="pointList__item__sub">
-              でたよ、これを使用する時はXXX部分を有効にする<strong>コンポーネントを＜head＞内に記述して読み込む。</strong>
-            </div>
-          </li>
-          <li class="pointList__item">カルーセルも独自のタグに書き換えないといけないね</li>
-          <li class="pointList__item">googleanalyticsも書き方変える</li>
-          <li class="pointList__item">imgタグは＜amp-img＞＜/amp-img＞</li>
-          <li class="pointList__item">
-            ハンバーガーメニューはgoogleセットに乗っかろう
+            ハンバーガーメニューやるならgoogleのセットに乗っかろう
             <div class="pointList__item__sub">
               外部ファイルとか読み込めないし、CSS制御すんのそれなり複数行になるからできる範囲で改造したほうが軽いでしょ
             </div>
           </li>
           <li class="pointList__item">
-            AMPの構文検証は「CHROME EXTENSION」入れると便利
+            schema.org
             <div class="pointList__item__sub">
-              <a href="https://validator.ampproject.org/" target="_blank">https://validator.ampproject.org/</a><br/>
-              右上ね
-            </div>
-          </li>
-          <li class="pointList__item">
-            schemaはこの辺でもみてちゃんと設定しないとね
-            <div class="pointList__item__sub">
+              よくわかってないですがAMP特有の構文っていうのはないみたいですが、<br/>
+              あったほうがいいけど、必須ではないという位置づけなのかな？<br/>
+              <a href="https://www.suzukikenichi.com/blog/amp-pages-will-no-longer-need-a-structured-data-to-appear-in-search-results/" tareget="_blank">
+                https://www.suzukikenichi.com/blog/amp-pages-will-no-longer-need-a-structured-data-to-appear-in-search-results/
+              </a><br/>
+              やるとしたら<br />
+              <a href="https://developers.google.com/search/docs/data-types/article" target="_blank">
+                https://developers.google.com/search/docs/data-types/article
+              </a><br/>
               <a href="http://schema-ja.appspot.com/docs/full.html" target="_blank">http://schema-ja.appspot.com/docs/full.html</a>
-            </div>
-          </li>
-          <li class="pointList__item">
-            webmastertoolsでシミュレーション
-            <div class="pointList__item__sub">
-              webmastertoolsにURL登録すると検索結果のシミュレーションとかみれるっぽいけど会社のPCで私用Gアカウントログインしたくないから後でだな。<br />
-              <a href="https://www.google.com/webmasters/tools/home?hl=ja" target="_blank">https://www.google.com/webmasters/tools/home?hl=ja</a>
             </div>
           </li>
         </ul>
@@ -147,7 +230,7 @@
         <li><a href="#"><img src="mountains-3.jpg"></a></li>
       </ul>
 
-      <div class="content__text">画像のみのシンプル</div>
+      <div class="content__text">間に広告とかテキストとか</div>
       <!-- <amp-carousel layout="fixed-height" height="250" type="carousel" >
         <amp-img src="blocky-mountains-1.jpg" width="300" height="250"></amp-img>
         <amp-ad width="300" height="250"
@@ -163,38 +246,63 @@
         <li><a href="#"><img src="blocky-mountains-1.jpg"></a></li>
         <li>
           <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-          <!-- europe30_sidebar-right-1_AdSense1_1x1_as -->
+          <!-- amptest -->
           <ins class="adsbygoogle"
                style="display:block"
                data-ad-client="ca-pub-1761147454528271"
-               data-ad-slot="3414086947"
+               data-ad-slot="5349495494"
                data-ad-format="auto"></ins>
           <script>
           (adsbygoogle = window.adsbygoogle || []).push({});
           </script>
+          <a href="#"><img src="mountains-2.jpg"></a>
         </li>
-        <li><a href="#"><img src="mountains-3.jpg"></a></li>
+        <li>
+          <div class="slider-2__text">
+            <a href="#">Big, bold article quote goes here.</a>
+          </div>
+        </li>
       </ul>
 
-    <h2>amp-youtube：Youtubeを表示する</h2>
-    <amp-youtube
-      data-videoid="npum8JsITQE"
-      layout="responsive"
-      width="480"
-      height="270">
-      <div fallback>
-        <p>The video could not be loaded.</p>
+      <div class="content__text">別にjs使わなくってもレスポンシブでないならoverflowでいいと思うんだけど</div>
+      <ul class="slider-3">
+        <li class="slider-3__item">
+          <div class="slider-3__item__wrap">
+            <img src="https://placehold.jp/300x250.png" alt="">
+          </div>
+        </li>
+        <li class="slider-3__item">
+          <div class="slider-3__item__wrap">
+            <img src="https://placehold.jp/300x250.png" alt="">
+          </div>
+        </li>
+        <li class="slider-3__item">
+          <div class="slider-3__item__wrap">
+            <img src="https://placehold.jp/300x250.png" alt="">
+          </div>
+        </li>
+      </ul>
+
+    </div>
+
+    <div class="content">
+      <h2 class="content__title">amp-youtube：Youtubeを表示する</h2>
+      <div class="sampleYoutube">
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/npum8JsITQE" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
       </div>
-    </amp-youtube>
+    </div>
+
+    <div class="content">
+      <h2 class="content__title">amp-twitter：ツイートを表示する</h2>
+      <div class="sampleTwitter">
+        <blockquote class="twitter-tweet" data-lang="ja"><p lang="en" dir="ltr">If you&#39;re close to:<br><br>📍 Sunnyvale (April 4)<br>📍 Taipei (April 24)<br>📍 Tokyo (April 27)<br>📍 Los Angeles (June 6)<br>📍 Seattle (June 12)<br>📍 Austin (July 11)<br>📍 New York (July 24)<br>📍 Cambridge (August 7)<br><br>..join the free and evergreen AMP Roadshow:<a href="https://t.co/0TXNdcWfix">https://t.co/0TXNdcWfix</a></p>&mdash; AMP Project (@AMPhtml) <a href="https://twitter.com/AMPhtml/status/981229254468780034?ref_src=twsrc%5Etfw">2018年4月3日</a></blockquote>
+        <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+      </div>
+    </div>
 
 
-    <h2>amp-twitter：ツイートを表示する</h2>
-    <amp-twitter
-      width="486"
-      height="657"
-      layout="responsive"
-      data-tweetid="981229254468780034">
-    </amp-twitter>
+
+
 
       <amp-img src="mountains.jpg" layout="responsive" width="266" height="150"></amp-img>
 
@@ -207,19 +315,41 @@
       data-full-width>
       <div overflow></div>
     </amp-ad>
-    <p>チッ！広告でねーぜ！なんでだよ！アカウントの問題かな？まぁいいや</p>
 
-    <div class="container">
-      https://validator.ampproject.org/
-      構造化データ テストツール
-      https://search.google.com/structured-data/testing-tool/u/0/
   </article>
 
 
 
-  <script>
-  $('.slider-1').slick({
-  });
-  </script>
+<script>
+//スライダー
+$('.slider-1').slick({
+});
+$('.slider-2').slick({
+  centerMode: true,
+  slidesToShow: 1,
+ adaptiveHeight: true,
+  responsive: [
+    {
+      breakpoint: 1,
+      settings: {
+        arrows: false,
+        centerMode: true,
+        centerPadding: '40px',
+        slidesToShow: 1
+      }
+    }
+  ]
+});
+
+//ハンバーガーメニュー
+$(document).ready(function() {
+  $('.drawer').drawer();
+});
+
+$(".menu-trigger").click(function(){
+	$(this).toggleClass("active");
+})
+
+</script>
 </body>
 </html>
